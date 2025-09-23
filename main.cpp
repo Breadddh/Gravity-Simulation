@@ -144,16 +144,16 @@ int main(int argc, char* argv[]){
 
 	float r = 255, g = 255, b = 255, a = 255, dc = u_dc;
 
-	int size = 100;
+	int size = 67;
 
 	Point points[size];
 
-	/*
-	points[0].Create(CircleX + 150, CircleY, 0, 4.08);
-	points[1].Create(CircleX + 300, CircleY, 0, std::sqrt(GM/300)); */
-
+	
+	//points[0].Create(CircleX + 150, CircleY, 0, 4.08);
+	//points[1].Create(CircleX + 300, CircleY, 0, std::sqrt(GM/300));
+	
 	for(int i = 0; i < size; i++){
-		points[i].Create(0, i * ((WIN_HEIGHT - 100) / size) + 50, std::sqrt(GM/300), 0);
+		points[i].Create(0, i * ((WIN_HEIGHT - 100) / size) + 50, 4, 0);
 	} 
 
 	while(run){
@@ -201,6 +201,10 @@ int main(int argc, char* argv[]){
 		SDL_RenderPresent(renderer);
 		SDL_Delay(16);
 	}
+
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
 
 	return 0;
 }
